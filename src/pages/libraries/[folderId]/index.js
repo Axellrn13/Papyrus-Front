@@ -8,6 +8,7 @@ import Button from "@/components/Button";
 import AddIcon from "@mui/icons-material/Add";
 import { Separator } from "@/components/ui/separator";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
+import InsertDriveFileOutlinedIcon from '@mui/icons-material/InsertDriveFileOutlined';
 
 export default function FolderView() {
   const { query } = useRouter();
@@ -62,32 +63,43 @@ export default function FolderView() {
           }}
         />
 
-        <input className={styles.search} placeholder="Search papers..." />
+        {papers.length > 0 && <input className={styles.search} placeholder="Search papers..." />}
 
-        <div className={styles.table}>
-          <div className={styles.thead}>
-            <div>Title</div>
-            <div>Author</div>
-            <div>Year</div>
-            <div>Journal</div>
-            <div>Type</div>
+        {papers.length === 0 ? (
+          <div className={styles.emptyWrap}>
+            <div className={styles.emptyCard}>
+              <InsertDriveFileOutlinedIcon style={{ fontSize: 120 }}/>
+              <h3 className={styles.emptyTitle}>No paper yet</h3>
+              <p className={styles.emptySubtitle}>
+                Add your first paper to get started with research collection
+              </p>
+            </div>
           </div>
-
-          {papers.map((p) => (
-            <Link key={p.id} href={`/papers/${p.id}`} className={styles.trow}>
-              <div className={styles.titleCell}>
-                <div className={styles.paperTitle}>{p.title}</div>
-                <div className={styles.paperSubtitle}>
-                  This is a sample abstract excerpt…
+        ) : (
+          <div className={styles.table}>
+            <div className={styles.thead}>
+              <div>Title</div>
+              <div>Author</div>
+              <div>Year</div>
+              <div>Journal</div>
+              <div>Type</div>
+            </div>
+            {papers.map((p) => (
+              <Link key={p.id} href={`/papers/${p.id}`} className={styles.trow}>
+                <div className={styles.titleCell}>
+                  <div className={styles.paperTitle}>{p.title}</div>
+                  <div className={styles.paperSubtitle}>
+                    This is a sample abstract excerpt…
+                  </div>
                 </div>
-              </div>
-              <div>{p.authors}</div>
-              <div>{p.year}</div>
-              <div className={styles.journalCell}>{p.journal}</div>
-              <div>{p.type}</div>
-            </Link>
-          ))}
-        </div>
+                <div>{p.authors}</div>
+                <div>{p.year}</div>
+                <div className={styles.journalCell}>{p.journal}</div>
+                <div>{p.type}</div>
+              </Link>
+            ))}
+          </div>
+        )}
       </main>
     </div>
   );
