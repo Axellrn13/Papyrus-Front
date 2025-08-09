@@ -1,0 +1,112 @@
+.navbarHeader {
+    position: relative;
+    width: 100%;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.navbarContainer {
+    margin: 0 auto;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #161616 !important;
+}
+
+.logoBox {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+}
+
+.logoText {
+    font-weight: 600;
+}
+
+.navbarLinks {
+    margin-left: 130px;
+    display: none;
+    gap: 35px;
+    border-radius: 999px;
+}
+
+@media (min-width: 768px) {
+    .navbarLinks {
+        display: flex;
+    }
+}
+
+.navLink {
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.navLink:hover {
+    color: #fff;
+}
+
+.navLink.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: solid rgba(255, 255, 255, 0.3) 1px;
+}
+
+.navbarActions {
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.loginBtn {
+    display: none;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+}
+
+@media (min-width: 640px) {
+    .loginBtn {
+        display: inline-flex;
+    }
+}
+
+.getStartedBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    background: #fff;
+    text-decoration: none;
+}
+
+.getStartedBtn:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.mobileMenuBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    outline: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 768px) {
+    .mobileMenuBtn {
+        display: none;
+    }
+}
