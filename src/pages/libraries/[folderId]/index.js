@@ -14,7 +14,8 @@ import { useMemo, useState } from "react";
 const EMPTY = [];
 
 export default function FolderView() {
-  const { query } = useRouter();
+  const router = useRouter();
+  const { query } = router;
   const { folderId } = query;
 
   const folder = folders.find((f) => f.id === folderId);
@@ -57,8 +58,9 @@ export default function FolderView() {
         {start}
         <mark
           style={{
-            background: "linear-gradient(90deg, rgba(255,182,193,0.4) 0%, rgba(255,105,180,0.4) 100%)",
-            color:"white",
+            background:
+              "linear-gradient(90deg, rgba(255,182,193,0.4) 0%, rgba(255,105,180,0.4) 100%)",
+            color: "white",
             padding: "0 2px",
             borderRadius: 4,
           }}
@@ -102,7 +104,11 @@ export default function FolderView() {
             ]}
           />
           <div className={styles.rightCornerBtns}>
-            <Button startIcon={<ChatBubbleIcon />} btnText={"Chat with AI"} />
+            <Button
+              startIcon={<ChatBubbleIcon />}
+              btnText={"Chat with AI"}
+              onClick={() => router.push(`/libraries/${folder.id}/ai-chat`)}
+            />
             <Button startIcon={<AddIcon />} btnText={"Add"} />
           </div>
         </div>
