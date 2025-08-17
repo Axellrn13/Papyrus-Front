@@ -18,7 +18,7 @@ export default function Home() {
 
         <p className={styles.subtitle}>
           Upload PDFs, organize collections and chat with AI about research.
-          The more elegant way to manage your academic papers.
+          The most elegant way to manage your academic papers.
         </p>
 
         <div className={styles.ctaRow}>
