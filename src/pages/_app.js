@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }) {
   return (
     <div className={`${inter.className} min-h-screen bg-[#161616] text-white`}>
       <Head>
-        <title>ScholarMind</title>
+        <title>Papyrus</title>
         <link rel="icon" type="image/png" href="/logo.png" />
       </Head>
       <Navbar />
