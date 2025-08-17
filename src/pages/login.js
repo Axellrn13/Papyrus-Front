@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { mockLogin } from "@/lib/auth";
+import GoogleIcon from '@mui/icons-material/Google';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -19,7 +20,7 @@ export default function LoginPage() {
     e.preventDefault();
     setError("");
 
-    const res = await mockLogin(email, password); // <- appel mock
+    const res = await mockLogin(email, password);
     if (!res.success) {
       setError(res.message || "Invalid credentials");
       return;
@@ -33,9 +34,9 @@ export default function LoginPage() {
 
       <section className={styles.hero}>
         <h1 className={styles.title}>
-          Welcome <span className={styles.titleAccent}>back</span>
+          Welcome to <span className={styles.titleAccent}>Papyrus</span>
         </h1>
-        <p className={styles.subtitle}>Log in to continue to Papyrus</p>
+        <p className={styles.subtitle}>Log in to continue</p>
 
         <form className={styles.card} onSubmit={handleSubmit}>
           <div className={styles.field}>
@@ -72,7 +73,7 @@ export default function LoginPage() {
           <div className={styles.footer}>
             <button type="submit" className={styles.primaryBtn}>Login</button>
             <button type="button" className={styles.secondaryBtn}>
-              Continue with Google
+              <GoogleIcon style={{fontSize:"20px"}}/> Continue with Google
             </button>
             <p className={styles.link}>
               Don’t have an account?{" "}
