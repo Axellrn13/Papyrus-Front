@@ -10,7 +10,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const nav = [
   { href: "/", label: "Home" },
-  { href: "/libraries", label: "My libraries", private: true },
+  { href: "/libraries", label: "My libraries" },
   { href: "/pricing", label: "Pricing" },
 ];
 
@@ -25,13 +25,6 @@ export default function Navbar() {
     const off = onAuthChange(setUser);
     return off;
   }, []);
-
-  const navVisible = useMemo(() => {
-    return nav.filter((item) => {
-      if (item.private && !user) return false;
-      return true;
-    });
-  }, [user]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -126,12 +119,14 @@ export default function Navbar() {
             }}
             aria-hidden
           />
-          {navVisible.map((item) => (
+          {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               ref={(el) => (itemRefs.current[item.href] = el)}
-              className={`${styles.navLink} ${isActive(item.href) ? styles.active : ""}`}
+              className={`${styles.navLink} ${
+                isActive(item.href) ? styles.active : ""
+              }`}
             >
               {item.label}
             </Link>
